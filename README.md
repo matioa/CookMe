@@ -10,3 +10,10 @@ With this app you can enter the ingredients you have in you home and search for 
 - Meals can be added to Favorites list;
 - Upload photos of cooked meals;
 - Add notes to the saved recipies (your personal know-how for the preparation of the recipie);
+
+
+### Sample images
+
+<img src="https://github.com/matioa/CookMe/blob/master/Snapshots/IngredientsList.png" width="250">
+<img src="https://github.com/matioa/CookMe/blob/master/Snapshots/MealSuggestion.png" width="250">
+<img src="https://github.com/matioa/CookMe/blob/master/Snapshots/MealDetails.png" width="250">
