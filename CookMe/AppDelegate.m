@@ -16,7 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.data = [[LocalData alloc] init];
+    [self.data addIngredient:[Ingredient ingredientWithName:@"Carrot"]];
+    [self.data addIngredient:[Ingredient ingredientWithName:@"Potatoe"]];
     return YES;
 }
 

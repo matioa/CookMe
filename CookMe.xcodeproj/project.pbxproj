@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		2B2715E11C62437E001B34B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2715E01C62437E001B34B4 /* main.m */; };
 		2B2715E41C62437E001B34B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2715E31C62437E001B34B4 /* AppDelegate.m */; };
-		2B2715E71C62437E001B34B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2715E61C62437E001B34B4 /* ViewController.m */; };
+		2B2715E71C62437E001B34B4 /* IngredientsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */; };
 		2B2715EA1C62437E001B34B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2715E81C62437E001B34B4 /* Main.storyboard */; };
 		2B2715EC1C62437E001B34B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2715EB1C62437E001B34B4 /* Assets.xcassets */; };
 		2B2715EF1C62437E001B34B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2715ED1C62437E001B34B4 /* LaunchScreen.storyboard */; };
+		2B2716201C6393BB001B34B4 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27161F1C6393BB001B34B4 /* Ingredient.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716251C63BD96001B34B4 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716241C63BD96001B34B4 /* LocalData.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716281C63D4DB001B34B4 /* Notifications.m */; settings = {ASSET_TAGS = (); }; };
+		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +24,21 @@
 		2B2715E01C62437E001B34B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B2715E21C62437E001B34B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B2715E31C62437E001B34B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2B2715E51C62437E001B34B4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2B2715E61C62437E001B34B4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IngredientsTableViewController.h; sourceTree = "<group>"; };
+		2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IngredientsTableViewController.m; sourceTree = "<group>"; };
 		2B2715E91C62437E001B34B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B2715EB1C62437E001B34B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B2715EE1C62437E001B34B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B2715F01C62437E001B34B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B27161E1C6393BB001B34B4 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		2B27161F1C6393BB001B34B4 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		2B2716231C63BD96001B34B4 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalData.h; sourceTree = "<group>"; };
+		2B2716241C63BD96001B34B4 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalData.m; sourceTree = "<group>"; };
+		2B2716271C63D4DB001B34B4 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
+		2B2716281C63D4DB001B34B4 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
+		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
+		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +46,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11029705C40DB863BCA89448 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */,
+				7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2B2715D31C62437E001B34B4 = {
 			isa = PBXGroup;
 			children = (
 				2B2715DE1C62437E001B34B4 /* CookMe */,
 				2B2715DD1C62437E001B34B4 /* Products */,
+				11029705C40DB863BCA89448 /* Pods */,
+				B24915EB990EA5A70D947935 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +83,12 @@
 		2B2715DE1C62437E001B34B4 /* CookMe */ = {
 			isa = PBXGroup;
 			children = (
+				2B2716261C63D4B5001B34B4 /* Helpers */,
 				2B2715E21C62437E001B34B4 /* AppDelegate.h */,
 				2B2715E31C62437E001B34B4 /* AppDelegate.m */,
-				2B2715E51C62437E001B34B4 /* ViewController.h */,
-				2B2715E61C62437E001B34B4 /* ViewController.m */,
+				2B2716221C63BD7D001B34B4 /* Data */,
+				2B2716211C63961A001B34B4 /* Models */,
+				2B27161D1C6385A8001B34B4 /* ViewModels */,
 				2B2715E81C62437E001B34B4 /* Main.storyboard */,
 				2B2715EB1C62437E001B34B4 /* Assets.xcassets */,
 				2B2715ED1C62437E001B34B4 /* LaunchScreen.storyboard */,
@@ -79,6 +106,50 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2B27161D1C6385A8001B34B4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */,
+				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		2B2716211C63961A001B34B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B27161E1C6393BB001B34B4 /* Ingredient.h */,
+				2B27161F1C6393BB001B34B4 /* Ingredient.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2B2716221C63BD7D001B34B4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2B2716231C63BD96001B34B4 /* LocalData.h */,
+				2B2716241C63BD96001B34B4 /* LocalData.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		2B2716261C63D4B5001B34B4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2B2716271C63D4DB001B34B4 /* Notifications.h */,
+				2B2716281C63D4DB001B34B4 /* Notifications.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		B24915EB990EA5A70D947935 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B2715F31C62437E001B34B4 /* Build configuration list for PBXNativeTarget "CookMe" */;
 			buildPhases = (
+				E6C32870FB691C49205BA1EF /* Check Pods Manifest.lock */,
 				2B2715D81C62437E001B34B4 /* Sources */,
 				2B2715D91C62437E001B34B4 /* Frameworks */,
 				2B2715DA1C62437E001B34B4 /* Resources */,
+				15D1A13AC62CEB7BBABF560E /* Embed Pods Frameworks */,
+				192A17D1A55B17B367947BBB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,13 +218,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15D1A13AC62CEB7BBABF560E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookMe/Pods-CookMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		192A17D1A55B17B367947BBB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookMe/Pods-CookMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6C32870FB691C49205BA1EF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B2715D81C62437E001B34B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B2715E71C62437E001B34B4 /* ViewController.m in Sources */,
+				2B2716251C63BD96001B34B4 /* LocalData.m in Sources */,
+				2B2716201C6393BB001B34B4 /* Ingredient.m in Sources */,
+				2B2715E71C62437E001B34B4 /* IngredientsTableViewController.m in Sources */,
 				2B2715E41C62437E001B34B4 /* AppDelegate.m in Sources */,
+				2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */,
 				2B2715E11C62437E001B34B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +384,7 @@
 		};
 		2B2715F41C62437E001B34B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CookMe/Info.plist;
@@ -270,6 +396,7 @@
 		};
 		2B2715F51C62437E001B34B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CookMe/Info.plist;
@@ -298,6 +425,7 @@
 				2B2715F51C62437E001B34B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
