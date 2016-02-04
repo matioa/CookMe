@@ -6,7 +6,7 @@ With this app you can enter the ingredients you have in you home and search for 
 
 ### Features
 - Add / Remove ingredients in a list;
-- Suggest meals based on the available ingredients (create combinations of the available ingredients and search for meals based on different combination at a time);
+- Suggest meals based on the available ingredients;
 - Meals can be added to Favorites list;
 - Upload photos of cooked meals;
 - Add notes to the saved recipies (your personal know-how for the preparation of the recipie);
