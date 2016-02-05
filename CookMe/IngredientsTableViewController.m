@@ -7,7 +7,7 @@
 //
 
 #import "IngredientsTableViewController.h"
-#import "Ingredient.h"
+#import "MAIngredient.h"
 #import "Notifications.h"
 #import "LocalData.h"
 #import "AppDelegate.h"
@@ -57,8 +57,8 @@
                                                    if (temp.text.length != 0) {
 //                                                       
                                                        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-                                                       [delegate.data addIngredient:[Ingredient ingredientWithName:temp.text]];
-                                                       [self.ingredientsAvailable addObject:[Ingredient ingredientWithName: temp.text]];
+                                                       [delegate.data addIngredient:[MAIngredient ingredientWithName:temp.text]];
+                                                       [self.ingredientsAvailable addObject:[MAIngredient ingredientWithName: temp.text]];
                                                        [self.tableView reloadData];
                                                        
                                                        [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text]

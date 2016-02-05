@@ -17,8 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.data = [[LocalData alloc] init];
-    [self.data addIngredient:[Ingredient ingredientWithName:@"Carrot"]];
-    [self.data addIngredient:[Ingredient ingredientWithName:@"Potatoe"]];
+    [self.data addIngredient:[MAIngredient ingredientWithName:@"Carrot"]];
+    [self.data addIngredient:[MAIngredient ingredientWithName:@"Potatoe"]];
     return YES;
 }
 

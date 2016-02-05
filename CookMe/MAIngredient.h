@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Ingredient : NSObject
+@interface MAIngredient : NSObject
 
 @property NSString *name;
+@property BOOL *isValid;
 
 -(instancetype)initWithName: (NSString *) name;
 
-+(Ingredient *) ingredientWithName: (NSString *) name;
++(MAIngredient *) ingredientWithName: (NSString *) name;
 
 @end

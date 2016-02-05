@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-# import "Ingredient.h"
+# import "MAIngredient.h"
 
 @interface LocalData : NSObject
 
 -(NSArray*) ingredients;
 
--(void) addIngredient: (Ingredient *) ingredient;
+-(void) addIngredient: (MAIngredient *) ingredient;
 
 -(void) removeIngredientAtIndex: (long) index;
 

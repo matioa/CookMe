@@ -13,9 +13,12 @@
 		2B2715EA1C62437E001B34B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2715E81C62437E001B34B4 /* Main.storyboard */; };
 		2B2715EC1C62437E001B34B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B2715EB1C62437E001B34B4 /* Assets.xcassets */; };
 		2B2715EF1C62437E001B34B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2715ED1C62437E001B34B4 /* LaunchScreen.storyboard */; };
-		2B2716201C6393BB001B34B4 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27161F1C6393BB001B34B4 /* Ingredient.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716201C6393BB001B34B4 /* MAIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27161F1C6393BB001B34B4 /* MAIngredient.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716251C63BD96001B34B4 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716241C63BD96001B34B4 /* LocalData.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716281C63D4DB001B34B4 /* Notifications.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716311C64DEB7001B34B4 /* MealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716301C64DEB7001B34B4 /* MealsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716341C650B06001B34B4 /* MAMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716331C650B06001B34B4 /* MAMeal.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716361C65152F001B34B4 /* MAHttpRequest.m */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
@@ -30,12 +33,18 @@
 		2B2715EB1C62437E001B34B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B2715EE1C62437E001B34B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B2715F01C62437E001B34B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B27161E1C6393BB001B34B4 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
-		2B27161F1C6393BB001B34B4 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
+		2B27161E1C6393BB001B34B4 /* MAIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAIngredient.h; sourceTree = "<group>"; };
+		2B27161F1C6393BB001B34B4 /* MAIngredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAIngredient.m; sourceTree = "<group>"; };
 		2B2716231C63BD96001B34B4 /* LocalData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalData.h; sourceTree = "<group>"; };
 		2B2716241C63BD96001B34B4 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalData.m; sourceTree = "<group>"; };
 		2B2716271C63D4DB001B34B4 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		2B2716281C63D4DB001B34B4 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
+		2B27162F1C64DEB7001B34B4 /* MealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealsViewController.h; sourceTree = "<group>"; };
+		2B2716301C64DEB7001B34B4 /* MealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealsViewController.m; sourceTree = "<group>"; };
+		2B2716321C650B06001B34B4 /* MAMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAMeal.h; sourceTree = "<group>"; };
+		2B2716331C650B06001B34B4 /* MAMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAMeal.m; sourceTree = "<group>"; };
+		2B2716351C65152F001B34B4 /* MAHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAHttpRequest.h; sourceTree = "<group>"; };
+		2B2716361C65152F001B34B4 /* MAHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAHttpRequest.m; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
 		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +120,8 @@
 			children = (
 				2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */,
 				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
+				2B27162F1C64DEB7001B34B4 /* MealsViewController.h */,
+				2B2716301C64DEB7001B34B4 /* MealsViewController.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -118,8 +129,10 @@
 		2B2716211C63961A001B34B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2B27161E1C6393BB001B34B4 /* Ingredient.h */,
-				2B27161F1C6393BB001B34B4 /* Ingredient.m */,
+				2B27161E1C6393BB001B34B4 /* MAIngredient.h */,
+				2B27161F1C6393BB001B34B4 /* MAIngredient.m */,
+				2B2716321C650B06001B34B4 /* MAMeal.h */,
+				2B2716331C650B06001B34B4 /* MAMeal.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -138,6 +151,8 @@
 			children = (
 				2B2716271C63D4DB001B34B4 /* Notifications.h */,
 				2B2716281C63D4DB001B34B4 /* Notifications.m */,
+				2B2716351C65152F001B34B4 /* MAHttpRequest.h */,
+				2B2716361C65152F001B34B4 /* MAHttpRequest.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -271,12 +286,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2716341C650B06001B34B4 /* MAMeal.m in Sources */,
 				2B2716251C63BD96001B34B4 /* LocalData.m in Sources */,
-				2B2716201C6393BB001B34B4 /* Ingredient.m in Sources */,
+				2B2716201C6393BB001B34B4 /* MAIngredient.m in Sources */,
 				2B2715E71C62437E001B34B4 /* IngredientsTableViewController.m in Sources */,
+				2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */,
 				2B2715E41C62437E001B34B4 /* AppDelegate.m in Sources */,
 				2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */,
 				2B2715E11C62437E001B34B4 /* main.m in Sources */,
+				2B2716311C64DEB7001B34B4 /* MealsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

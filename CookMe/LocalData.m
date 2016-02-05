@@ -28,7 +28,7 @@
     return [NSArray arrayWithArray:self._ingredients];
 }
 
--(void) addIngredient: (Ingredient *) ingredient{
+-(void) addIngredient: (MAIngredient *) ingredient{
     [self._ingredients  addObject:ingredient];
 }
 

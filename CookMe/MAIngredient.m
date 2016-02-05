@@ -6,9 +6,9 @@
 //  Copyright © 2016 MartinApostolov. All rights reserved.
 //
 
-#import "Ingredient.h"
+#import "MAIngredient.h"
 
-@implementation Ingredient
+@implementation MAIngredient
 
 @synthesize name = _name;
 
@@ -20,8 +20,8 @@
     return self;
 }
 
-+(Ingredient *) ingredientWithName: (NSString *) name{
-    return [[Ingredient alloc] initWithName:name];
++(MAIngredient *) ingredientWithName: (NSString *) name{
+    return [[MAIngredient alloc] initWithName:name];
 }
 
 -(NSString *) name{
