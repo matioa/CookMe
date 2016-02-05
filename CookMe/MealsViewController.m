@@ -12,17 +12,30 @@
 
 @interface MealsViewController ()
 
+@property (strong, nonatomic) NSMutableArray *meals;
+
 @end
 
 @implementation MealsViewController
 
-
+@synthesize meals;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Meals";
+    meals = [NSMutableArray array];
+    
+    self.tableView.dataSource = self;
+    
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+//    self.navigationItem.title = @"Recipe Book";
+//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+//    [[self navigationItem] setBackBarButtonItem:backButton];
+
     
     [self getMeals];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +51,6 @@
     
     [httpRequest getRequest:urlStr withCompletionHandler:^(NSDictionary * _Nullable dict) {
         NSArray *mealsDicts = [dict objectForKey:@"hits"];
-        NSMutableArray *meals = [NSMutableArray array];
         
         for(int i = 0; i< mealsDicts.count; i++){
             NSDictionary *singleMealDict = [mealsDicts objectAtIndex:i];
@@ -46,6 +58,7 @@
             [meals addObject:meal];
             NSLog(@"Meal Name: %@",meal.name);
         }
+        [self.tableView reloadData];
 
     }];
     
@@ -87,6 +100,65 @@
 //        
 //    }]
 //     resume];
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return meals.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Display recipe in the table cell
+    MAMeal *recipe = [meals objectAtIndex:indexPath.row];
+//    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
+//    recipeImageView.image = [UIImage imageNamed:meals.];
+    
+    UILabel *recipeNameLabel = (UILabel *)[cell viewWithTag:101];
+    recipeNameLabel.text = recipe.name;
+    
+    UILabel *recipeDetailLabel = (UILabel *)[cell viewWithTag:102];
+    recipeDetailLabel.text = [recipe.ingredients objectAtIndex:0];
+    
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+    
+    return cell;
+}
+
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
+    
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_top.png"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_bottom.png"];
+    } else {
+        background = [UIImage imageNamed:@"cell_middle.png"];
+    }
+    
+    return background;
 }
 
 /*

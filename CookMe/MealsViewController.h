@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MealsViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *mealsView;
+@interface MealsViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
+
 
 @end
