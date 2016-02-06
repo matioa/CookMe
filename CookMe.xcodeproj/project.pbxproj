@@ -26,6 +26,7 @@
 		2B2716431C652DD1001B34B4 /* cell_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163D1C652DD1001B34B4 /* cell_middle@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2B2716441C652DD1001B34B4 /* cell_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163E1C652DD1001B34B4 /* cell_top.png */; settings = {ASSET_TAGS = (); }; };
 		2B2716451C652DD1001B34B4 /* cell_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163F1C652DD1001B34B4 /* cell_top@2x.png */; settings = {ASSET_TAGS = (); }; };
+		2B2716481C65E349001B34B4 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716471C65E349001B34B4 /* MealTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		2B27163D1C652DD1001B34B4 /* cell_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_middle@2x.png"; path = "images/cell_middle@2x.png"; sourceTree = "<group>"; };
 		2B27163E1C652DD1001B34B4 /* cell_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_top.png; path = images/cell_top.png; sourceTree = "<group>"; };
 		2B27163F1C652DD1001B34B4 /* cell_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_top@2x.png"; path = "images/cell_top@2x.png"; sourceTree = "<group>"; };
+		2B2716461C65E349001B34B4 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
+		2B2716471C65E349001B34B4 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
 		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
 				2B27162F1C64DEB7001B34B4 /* MealsViewController.h */,
 				2B2716301C64DEB7001B34B4 /* MealsViewController.m */,
+				2B2716461C65E349001B34B4 /* MealTableViewCell.h */,
+				2B2716471C65E349001B34B4 /* MealTableViewCell.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2716481C65E349001B34B4 /* MealTableViewCell.m in Sources */,
 				2B2716341C650B06001B34B4 /* MAMeal.m in Sources */,
 				2B2716251C63BD96001B34B4 /* LocalData.m in Sources */,
 				2B2716201C6393BB001B34B4 /* MAIngredient.m in Sources */,

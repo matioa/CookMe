@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="center" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="Cell" rowHeight="107" id="vy4-ks-K2b">
+                            <tableViewCell contentMode="center" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="Cell" rowHeight="107" id="vy4-ks-K2b" customClass="MealTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vy4-ks-K2b" id="dY3-Oo-1LR">
@@ -141,6 +141,11 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mealDetail" destination="bhY-vg-GCP" id="GsI-nt-rnp"/>
+                                    <outlet property="mealImage" destination="nsT-1h-5Kk" id="psU-Wv-Esh"/>
+                                    <outlet property="mealName" destination="SuP-PT-rf9" id="z0S-Ef-5Lh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -149,6 +154,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="T8B-Zx-p2t"/>
+                    <connections>
+                        <outlet property="mealTableView" destination="mjV-7y-AFr" id="rZQ-aw-xHl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0H-rV-hG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

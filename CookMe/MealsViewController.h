@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MealTableViewCell.h"
 
 @interface MealsViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UITableView *mealTableView;
 
 @end

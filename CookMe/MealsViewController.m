@@ -9,10 +9,12 @@
 #import "MealsViewController.h"
 #import "MAMeal.h"
 #import "MAHttpRequest.h"
+#import "MBPRogressHud.h"
 
 @interface MealsViewController ()
 
 @property (strong, nonatomic) NSMutableArray *meals;
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -23,16 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Meals";
-    meals = [NSMutableArray array];
+    self.meals = [NSMutableArray array];
     
-    self.tableView.dataSource = self;
-    
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
-//    self.navigationItem.title = @"Recipe Book";
-//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
-//    [[self navigationItem] setBackBarButtonItem:backButton];
-
+    self.mealTableView.dataSource = self;
+    [self.mealTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self getMeals];
     
@@ -45,6 +41,9 @@
 
 
 -(void)getMeals{
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Loading...";
+    
     NSString *urlStr =@"https://api.edamam.com/search?q=chicken&app_id=a59f1e83&app_key=a5564ce4d5d3669027e28477164dd0ef";
     
     MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
@@ -58,8 +57,11 @@
             [meals addObject:meal];
             NSLog(@"Meal Name: %@",meal.name);
         }
-        [self.tableView reloadData];
 
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.hud hide:YES];
+            [self.mealTableView reloadData];
+        });
     }];
     
 //    NSURL *url = [NSURL URLWithString:urlStr];
@@ -110,37 +112,48 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return meals.count;
+    return self.meals.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MAMeal *recipe = [self.meals objectAtIndex:indexPath.row];
     
-    // Configure the cell...
+    MealTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[MealTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.mealName.text = recipe.name;
+        cell.mealDetail.text = [recipe.ingredients objectAtIndex:0];
     }
     
-    // Display recipe in the table cell
-    MAMeal *recipe = [meals objectAtIndex:indexPath.row];
-    UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:recipe.image]]];
-    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    recipeImageView.image = img;
-    
-    UILabel *recipeNameLabel = (UILabel *)[cell viewWithTag:101];
-    recipeNameLabel.text = recipe.name;
-    
-    UILabel *recipeDetailLabel = (UILabel *)[cell viewWithTag:102];
-    recipeDetailLabel.text = [recipe.ingredients objectAtIndex:0];
+    cell.mealName.text = recipe.name;
+    cell.mealDetail.text = [recipe.ingredients objectAtIndex:0];
+    cell.mealImage.image = nil;
     
     UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
-    
+   
     UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
     cellBackgroundView.image = background;
     cell.backgroundView = cellBackgroundView;
+    
+    NSURL *url = [NSURL URLWithString:recipe.image];
+    
+    NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data) {
+            UIImage *image = [UIImage imageWithData:data];
+            if (image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    MealTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                    if (updateCell)
+                        updateCell.mealImage.image = image;
+                });
+            }
+        }
+    }];
+    [task resume];
     
     return cell;
 }
