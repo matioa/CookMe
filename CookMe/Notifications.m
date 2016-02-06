@@ -11,7 +11,10 @@
 
 @implementation Notifications
 
-+(void) notifyWithMessage:(NSString *)message andNavigationController:(UIView *)controller{
++(void) notifyWithMessage:(NSString *)message
+                    delay:(float) delay
+  andNavigationController:(UIView *)controller
+{
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:controller animated:YES];
     
     // Configure for text only and offset down
@@ -22,7 +25,7 @@
     hud.yOffset = 150.f;
     hud.removeFromSuperViewOnHide = YES;
     
-    [hud hide:YES afterDelay:1];
+    [hud hide:YES afterDelay:delay];
 }
 //self.navigationController.view 
 @end

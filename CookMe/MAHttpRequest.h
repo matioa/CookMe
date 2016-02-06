@@ -12,6 +12,8 @@
 
 - (void)getRequest:(NSString *)urlStr withCompletionHandler:(void (^)(NSDictionary * __nullable dict))completionHandler;
 
+-(void) checkIngredientValidity:(NSString *)ingredientName withCompletionHandler:(void (^)(BOOL result))completionHandler;
+
 +(NSString *)urlStringWithQuery: (NSString *)query
                            from:(int) from
                           andTo:(int) to;

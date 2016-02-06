@@ -11,6 +11,7 @@
 #import "Notifications.h"
 #import "LocalData.h"
 #import "AppDelegate.h"
+#import "MAHttpRequest.h"
 
 
 @implementation IngredientsTableViewController
@@ -54,17 +55,41 @@
                                                handler:^(UIAlertAction * action) {
                                                    
                                                    UITextField *temp = alert.textFields.firstObject;
-                                                   if (temp.text.length != 0) {
-//                                                       
+                                                       @try
+                                                       {
                                                        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
                                                        [delegate.data addIngredient:[MAIngredient ingredientWithName:temp.text]];
                                                        [self.ingredientsAvailable addObject:[MAIngredient ingredientWithName: temp.text]];
                                                        [self.tableView reloadData];
                                                        
-                                                       [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text]
+                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text] delay:1.5
                                                                 andNavigationController:self.navigationController.view];
-  
-                                                   }
+                                                           
+                                                           
+                                                           //Check the validity of the entered ingredient
+                                                           MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
+                                                           
+                                                           [httpRequest checkIngredientValidity:temp.text withCompletionHandler:^(BOOL result) {
+                                                               if (result == NO) {
+                                                               [delegate.data removeIngredientAtIndex:self.ingredientsAvailable.count-1];
+                                                                   [self.ingredientsAvailable removeLastObject];
+
+                                                                   
+                                                                   dispatch_async(dispatch_get_main_queue(), ^{
+                                                                       [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ is not ingredient", temp.text] delay:4
+                                                                                andNavigationController:self.navigationController.view];
+                                                                       [self.tableVIew reloadData];
+                                                                   });
+                                                               }
+                                                               
+                                                           }];
+                                                                                                                    
+                                                       }
+                                                       @catch(NSException *exception) {
+                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@", exception.reason] delay:4
+                                                                    andNavigationController:self.navigationController.view];
+                                                           return;
+                                                       }
                                                }];
     
     UIAlertAction* cancel = [UIAlertAction
@@ -78,6 +103,8 @@
     [alert addAction:cancel];
     [alert addAction:add];
     [self presentViewController:alert animated:YES completion:nil];
+    
+
 
 }
 
@@ -118,8 +145,7 @@
         [self.ingredientsAvailable removeObjectAtIndex:num];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ deleted", ingredientName]
-                 andNavigationController:self.navigationController.view];
+        [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ deleted", ingredientName] delay:1.5  andNavigationController:self.navigationController.view];
         
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

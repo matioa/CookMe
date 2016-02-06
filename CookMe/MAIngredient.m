@@ -7,6 +7,7 @@
 //
 
 #import "MAIngredient.h"
+#import "Validator.h"
 
 @implementation MAIngredient
 
@@ -29,6 +30,22 @@
 }
 
 -(void)setName:(NSString *)name{
+    BOOL isValid = [Validator validateStringContainsAlphabetsOnly:name];
+    if (!isValid) {
+        NSException* myException = [NSException
+                                    exceptionWithName:@"WrongInput"
+                                    reason:@"Only letters (no spaces) allowed"
+                                    userInfo:nil];
+        @throw myException;
+    }
+    if (name == nil || name.length < 4) {
+        NSException* myException = [NSException
+                                    exceptionWithName:@"WrongInput"
+                                    reason:@"Enter at least 3 characters"
+                                    userInfo:nil];
+        @throw myException;
+    }
+    
     _name = [name lowercaseString];
 }
 

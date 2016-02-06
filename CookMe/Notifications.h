@@ -11,6 +11,8 @@
 
 @interface Notifications : UINavigationController
 
-+(void) notifyWithMessage: (NSString*) message andNavigationController:(UIView*) controller;
++(void) notifyWithMessage: (NSString*) message
+                    delay:(float)delay
+  andNavigationController:(UIView*) controller;
 
 @end
