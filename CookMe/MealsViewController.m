@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSMutableArray *meals;
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property int index;
 
 @end
 
@@ -24,14 +25,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Meals";
+    self.title = @"Recipe suggestions";
     self.meals = [NSMutableArray array];
     
     self.mealTableView.dataSource = self;
     [self.mealTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.index = 0;
     
-    [self getMeals];
-    
+    [self getMealsFrom:self.index andTo:self.index+20];
+    self.index +=20;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,12 +42,12 @@
 }
 
 
--(void)getMeals{
+-(void)getMealsFrom: (int) from andTo: (int) to{
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Loading...";
     
-    NSString *urlStr =@"https://api.edamam.com/search?q=chicken&app_id=a59f1e83&app_key=a5564ce4d5d3669027e28477164dd0ef";
     
+    NSString *urlStr = [MAHttpRequest urlStringWithQuery:@"chicken" from:from andTo:to];
     MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
     
     [httpRequest getRequest:urlStr withCompletionHandler:^(NSDictionary * _Nullable dict) {
@@ -59,7 +61,10 @@
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.hud hide:YES];
+            if (!self.hud.isHidden) {
+                [self.hud hide:YES];
+            }
+
             [self.mealTableView reloadData];
         });
     }];
@@ -103,22 +108,22 @@
 //    }]
 //     resume];
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.meals.count;
+    return [self.meals count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+    static NSString *moreCellId = @"moreCell";
     MAMeal *recipe = [self.meals objectAtIndex:indexPath.row];
     
     MealTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -155,6 +160,11 @@
     }];
     [task resume];
     
+    if (indexPath.row >= self.index-3) {
+        [self getMealsFrom:self.index andTo:self.index+20];
+        self.index +=20;
+    }
+    
     return cell;
 }
 
@@ -165,15 +175,16 @@
     UIImage *background = nil;
     
     if (rowIndex == 0) {
-        background = [UIImage imageNamed:@"cell_top.png"];
+        background = [UIImage imageNamed:@"images/cell_top.png"];
     } else if (rowIndex == rowCount - 1) {
-        background = [UIImage imageNamed:@"cell_bottom.png"];
+        background = [UIImage imageNamed:@"images/cell_bottom.png"];
     } else {
-        background = [UIImage imageNamed:@"cell_middle.png"];
+        background = [UIImage imageNamed:@"images/cell_middle.png"];
     }
     
     return background;
 }
+
 
 /*
 #pragma mark - Navigation

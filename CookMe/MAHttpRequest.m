@@ -11,7 +11,7 @@
 @implementation MAHttpRequest
 
 - (void)getRequest:(NSString *)urlStr withCompletionHandler:(void (^)(NSDictionary * __nullable dict))completionHandler{
-   
+    
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -24,6 +24,16 @@
     }]
      resume];
 
+}
+
++(NSString*)urlStringWithQuery: (NSString*)query
+                             from:(int) from
+                            andTo:(int) to{
+    NSString *appId = @"a59f1e83";
+    NSString *appKey = @"a5564ce4d5d3669027e28477164dd0ef";
+    NSString *urlStr = [NSString stringWithFormat:@"https://api.edamam.com/search?q=%@&from=%d&to=%d&app_id=%@&app_key=%@", query, from, to, appId, appKey];
+    
+    return urlStr;
 }
 
 @end

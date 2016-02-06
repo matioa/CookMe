@@ -20,12 +20,6 @@
 		2B2716341C650B06001B34B4 /* MAMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716331C650B06001B34B4 /* MAMeal.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716361C65152F001B34B4 /* MAHttpRequest.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716391C6529E1001B34B4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 2B2716381C6529E1001B34B4 /* images */; settings = {ASSET_TAGS = (); }; };
-		2B2716401C652DD1001B34B4 /* cell_bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163A1C652DD1001B34B4 /* cell_bottom.png */; settings = {ASSET_TAGS = (); }; };
-		2B2716411C652DD1001B34B4 /* cell_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163B1C652DD1001B34B4 /* cell_bottom@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2B2716421C652DD1001B34B4 /* cell_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163C1C652DD1001B34B4 /* cell_middle.png */; settings = {ASSET_TAGS = (); }; };
-		2B2716431C652DD1001B34B4 /* cell_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163D1C652DD1001B34B4 /* cell_middle@2x.png */; settings = {ASSET_TAGS = (); }; };
-		2B2716441C652DD1001B34B4 /* cell_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163E1C652DD1001B34B4 /* cell_top.png */; settings = {ASSET_TAGS = (); }; };
-		2B2716451C652DD1001B34B4 /* cell_top@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B27163F1C652DD1001B34B4 /* cell_top@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2B2716481C65E349001B34B4 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716471C65E349001B34B4 /* MealTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
@@ -54,12 +48,6 @@
 		2B2716351C65152F001B34B4 /* MAHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAHttpRequest.h; sourceTree = "<group>"; };
 		2B2716361C65152F001B34B4 /* MAHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAHttpRequest.m; sourceTree = "<group>"; };
 		2B2716381C6529E1001B34B4 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
-		2B27163A1C652DD1001B34B4 /* cell_bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_bottom.png; path = images/cell_bottom.png; sourceTree = "<group>"; };
-		2B27163B1C652DD1001B34B4 /* cell_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_bottom@2x.png"; path = "images/cell_bottom@2x.png"; sourceTree = "<group>"; };
-		2B27163C1C652DD1001B34B4 /* cell_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_middle.png; path = images/cell_middle.png; sourceTree = "<group>"; };
-		2B27163D1C652DD1001B34B4 /* cell_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_middle@2x.png"; path = "images/cell_middle@2x.png"; sourceTree = "<group>"; };
-		2B27163E1C652DD1001B34B4 /* cell_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cell_top.png; path = images/cell_top.png; sourceTree = "<group>"; };
-		2B27163F1C652DD1001B34B4 /* cell_top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell_top@2x.png"; path = "images/cell_top@2x.png"; sourceTree = "<group>"; };
 		2B2716461C65E349001B34B4 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
 		2B2716471C65E349001B34B4 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,12 +97,6 @@
 		2B2715DE1C62437E001B34B4 /* CookMe */ = {
 			isa = PBXGroup;
 			children = (
-				2B27163A1C652DD1001B34B4 /* cell_bottom.png */,
-				2B27163B1C652DD1001B34B4 /* cell_bottom@2x.png */,
-				2B27163C1C652DD1001B34B4 /* cell_middle.png */,
-				2B27163D1C652DD1001B34B4 /* cell_middle@2x.png */,
-				2B27163E1C652DD1001B34B4 /* cell_top.png */,
-				2B27163F1C652DD1001B34B4 /* cell_top@2x.png */,
 				2B2716381C6529E1001B34B4 /* images */,
 				2B2716261C63D4B5001B34B4 /* Helpers */,
 				2B2715E21C62437E001B34B4 /* AppDelegate.h */,
@@ -252,14 +234,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B2716391C6529E1001B34B4 /* images in Resources */,
-				2B2716411C652DD1001B34B4 /* cell_bottom@2x.png in Resources */,
-				2B2716421C652DD1001B34B4 /* cell_middle.png in Resources */,
 				2B2715EF1C62437E001B34B4 /* LaunchScreen.storyboard in Resources */,
 				2B2715EC1C62437E001B34B4 /* Assets.xcassets in Resources */,
-				2B2716431C652DD1001B34B4 /* cell_middle@2x.png in Resources */,
-				2B2716401C652DD1001B34B4 /* cell_bottom.png in Resources */,
-				2B2716441C652DD1001B34B4 /* cell_top.png in Resources */,
-				2B2716451C652DD1001B34B4 /* cell_top@2x.png in Resources */,
 				2B2715EA1C62437E001B34B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

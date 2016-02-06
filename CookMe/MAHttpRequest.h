@@ -12,5 +12,8 @@
 
 - (void)getRequest:(NSString *)urlStr withCompletionHandler:(void (^)(NSDictionary * __nullable dict))completionHandler;
 
++(NSString *)urlStringWithQuery: (NSString *)query
+                           from:(int) from
+                          andTo:(int) to;
 
 @end
