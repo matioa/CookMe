@@ -38,7 +38,7 @@
                                     userInfo:nil];
         @throw myException;
     }
-    if (name == nil || name.length < 4) {
+    if (name == nil || name.length < 3) {
         NSException* myException = [NSException
                                     exceptionWithName:@"WrongInput"
                                     reason:@"Enter at least 3 characters"
@@ -47,6 +47,11 @@
     }
     
     _name = [name lowercaseString];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@", self.name];
 }
 
 @end

@@ -14,6 +14,12 @@
 #import "MAHttpRequest.h"
 
 
+@interface IngredientsTableViewController()
+
+@property (nonatomic, strong) MBProgressHUD *hud;
+
+@end
+
 @implementation IngredientsTableViewController
 
 //-(void)viewWillAppear:(BOOL)animated{
@@ -62,7 +68,7 @@
                                                        [self.ingredientsAvailable addObject:[MAIngredient ingredientWithName: temp.text]];
                                                        [self.tableView reloadData];
                                                        
-                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text] delay:1.5
+                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text] delay:1
                                                                 andNavigationController:self.navigationController.view];
                                                            
                                                            
@@ -76,9 +82,10 @@
 
                                                                    
                                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                                       [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ is not ingredient", temp.text] delay:4
+                                                                       [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ is not an ingredient", temp.text] delay:3
                                                                                 andNavigationController:self.navigationController.view];
                                                                        [self.tableVIew reloadData];
+
                                                                    });
                                                                }
                                                                
@@ -86,7 +93,7 @@
                                                                                                                     
                                                        }
                                                        @catch(NSException *exception) {
-                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@", exception.reason] delay:4
+                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@", exception.reason] delay:3
                                                                     andNavigationController:self.navigationController.view];
                                                            return;
                                                        }
@@ -145,7 +152,7 @@
         [self.ingredientsAvailable removeObjectAtIndex:num];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ deleted", ingredientName] delay:1.5  andNavigationController:self.navigationController.view];
+        [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ deleted", ingredientName] delay:1  andNavigationController:self.navigationController.view];
         
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
