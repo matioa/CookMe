@@ -10,6 +10,7 @@
 #import "MAMeal.h"
 #import "MAHttpRequest.h"
 #import "MBPRogressHud.h"
+#import "DetailsViewController.h"
 
 @interface MealsViewController ()
 
@@ -122,30 +123,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    static NSString *moreCellId = @"moreCell";
     MAMeal *recipe = [self.meals objectAtIndex:indexPath.row];
     
+    static NSString *CellIdentifier = @"Cell";
     MealTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
         cell = [[MealTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.mealName.text = recipe.name;
-        cell.mealDetail.text = [recipe.ingredients objectAtIndex:0];
     }
     
+    //Set cell title and description from array
     cell.mealName.text = recipe.name;
     cell.mealDetail.text = [recipe.ingredients objectAtIndex:0];
     cell.mealImage.image = nil;
     
+    //Set cell background
     UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
-   
     UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
     cellBackgroundView.image = background;
     cell.backgroundView = cellBackgroundView;
     
+    //Get images with http request
     NSURL *url = [NSURL URLWithString:recipe.image];
-    
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (data) {
             UIImage *image = [UIImage imageWithData:data];
@@ -160,8 +159,8 @@
     }];
     [task resume];
     
-    if (indexPath.row >= self.index-3) {
-        [self getMealsFrom:self.index andTo:self.index+20];
+    if (indexPath.row >= self.index-5) {
+        [self getMealsFrom:self.index+1 andTo:self.index+20];
         self.index +=20;
     }
     
@@ -183,6 +182,24 @@
     }
     
     return background;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"showDetails" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showDetails"]) {
+        NSIndexPath *indexPath = [self.mealTableView indexPathForSelectedRow];
+        DetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.name = [[self.meals objectAtIndex:indexPath.row] name];
+        NSArray *ingredientsArray = [[self.meals objectAtIndex:indexPath.row] ingredients];
+        NSString *ingredientsString = [[ingredientsArray valueForKey:@"description" ] componentsJoinedByString:@"\n"];
+        destViewController.ingredients = ingredientsString;
+        NSString *url =[[self.meals objectAtIndex:indexPath.row] image];
+        destViewController.imageUrl = url;
+    }
 }
 
 

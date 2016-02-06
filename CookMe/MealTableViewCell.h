@@ -10,7 +10,7 @@
 
 @interface MealTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *mealName;
+@property (strong, nonatomic) IBOutlet UITextView *mealName;
 @property (strong, nonatomic) IBOutlet UILabel *mealDetail;
 @property (strong, nonatomic) IBOutlet UIImageView *mealImage;
 
