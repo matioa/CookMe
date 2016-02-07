@@ -23,6 +23,8 @@
 		2B2716481C65E349001B34B4 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2B27164E1C66383D001B34B4 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27164D1C66383D001B34B4 /* DetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716511C66491C001B34B4 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716501C66491C001B34B4 /* Validator.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716791C673FFE001B34B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2716781C673FFE001B34B4 /* CoreData.framework */; };
+		2B27167C1C6741FF001B34B4 /* CookMeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		2B27164D1C66383D001B34B4 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2B27164F1C66491C001B34B4 /* Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validator.h; sourceTree = "<group>"; };
 		2B2716501C66491C001B34B4 /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validator.m; sourceTree = "<group>"; };
+		2B2716781C673FFE001B34B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2B27167B1C6741FF001B34B4 /* CookMeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookMeModel.xcdatamodel; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
 		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B2716791C673FFE001B34B4 /* CoreData.framework in Frameworks */,
 				B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +120,7 @@
 				2B2715ED1C62437E001B34B4 /* LaunchScreen.storyboard */,
 				2B2715F01C62437E001B34B4 /* Info.plist */,
 				2B2715DF1C62437E001B34B4 /* Supporting Files */,
+				2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */,
 			);
 			path = CookMe;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 		B24915EB990EA5A70D947935 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B2716781C673FFE001B34B4 /* CoreData.framework */,
 				63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */,
 			);
 			name = Frameworks;
@@ -313,6 +320,7 @@
 				2B2715E71C62437E001B34B4 /* IngredientsTableViewController.m in Sources */,
 				2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */,
 				2B2715E41C62437E001B34B4 /* AppDelegate.m in Sources */,
+				2B27167C1C6741FF001B34B4 /* CookMeModel.xcdatamodeld in Sources */,
 				2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */,
 				2B2716511C66491C001B34B4 /* Validator.m in Sources */,
 				2B2715E11C62437E001B34B4 /* main.m in Sources */,
@@ -470,6 +478,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2B27167B1C6741FF001B34B4 /* CookMeModel.xcdatamodel */,
+			);
+			currentVersion = 2B27167B1C6741FF001B34B4 /* CookMeModel.xcdatamodel */;
+			path = CookMeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2B2715D41C62437E001B34B4 /* Project object */;
 }
