@@ -11,35 +11,64 @@
 @implementation MARecipe
 
 -(instancetype) initWithName: (NSString*) name
+                     shareAs: (NSString*) shareAs
+                      source: (NSString*) source
+                    calories: (double) calories
+                       yield: (int) yield
+                   recipeUrl: (NSString*) recipeUrl
                  ingredients: (NSArray*) ingredients
                        image: (NSString*) image
                    andMealId:(NSString*) mealId
 {
     if(self = [super init]){
         self.name = name;
+        self.shareAs = shareAs;
+        self.source = source;
+        self.calories = calories;
+        self.yield = yield;
+        self.recipeUrl = recipeUrl;
         self.ingredients = [NSArray arrayWithArray:ingredients];
         self.image = image;
         self.mealId = mealId;
     }
+    
     return self;
 }
 
-+(MARecipe*) mealWithName: (NSString*) name
-              ingredients: (NSArray*) ingredients
-                    image: (NSString*) image
-                andMealId:(NSString*) mealId
++(MARecipe*) recipeWithName: (NSString*) name
+                    shareAs: (NSString*) shareAs
+                     source: (NSString*) source
+                   calories: (double) calories
+                      yield: (int) yield
+                  recipeUrl: (NSString*) recipeUrl
+                ingredients: (NSArray*) ingredients
+                      image: (NSString*) image
+                  andMealId:(NSString*) mealId
 {
-    return [[MARecipe alloc] initWithName:name ingredients:ingredients image:image andMealId:mealId];
+    return [[MARecipe alloc] initWithName:name
+                                  shareAs:shareAs
+                                   source:source
+                                 calories:calories
+                                    yield:yield
+                                recipeUrl:recipeUrl
+                              ingredients:ingredients
+                                    image:image
+                                andMealId:mealId];
 }
 
-+(MARecipe*) mealWithDict: (NSDictionary*) dict
++(MARecipe*) recipeWithDict: (NSDictionary*) dict
 {
     NSString *name = [([dict objectForKey:@"recipe"]) objectForKey:@"label"];
+    NSString *shareAs = [([dict objectForKey:@"recipe"]) objectForKey:@"shareAs"];
+    NSString *source = [([dict objectForKey:@"recipe"]) objectForKey:@"source"];
+    int calories = [[([dict objectForKey:@"recipe"]) objectForKey:@"calories"] integerValue];
+    int yield = [[([dict objectForKey:@"recipe"]) objectForKey:@"yield"] integerValue];
+    NSString *recipeUrl = [([dict objectForKey:@"recipe"]) objectForKey:@"url"];
+    NSArray *ingredients = [([dict objectForKey:@"recipe"]) objectForKey:@"ingredientLines"];
     NSString *image = [([dict objectForKey:@"recipe"]) objectForKey:@"image"];
     NSString *mealId = [([dict objectForKey:@"recipe"]) objectForKey:@"uri"];
-    NSArray *ingredients = [([dict objectForKey:@"recipe"]) objectForKey:@"ingredientLines"];
     
-    return [[MARecipe alloc] initWithName:name ingredients:ingredients image:image andMealId:mealId];
+    return [MARecipe recipeWithName:name shareAs:shareAs source:source calories:calories yield:yield recipeUrl:recipeUrl ingredients:ingredients image:image andMealId:mealId];
 }
 
 @end

@@ -53,7 +53,7 @@
         
         for(int i = 0; i< mealsDicts.count; i++){
             NSDictionary *singleMealDict = [mealsDicts objectAtIndex:i];
-            MARecipe *meal = [MARecipe mealWithDict:singleMealDict];
+            MARecipe *meal = [MARecipe recipeWithDict:singleMealDict];
             [meals addObject:meal];
             NSLog(@"Recipe name: %@",meal.name);
         }
@@ -89,7 +89,9 @@
     
     //Set cell title and description from array
     cell.mealName.text = recipe.name;
-    cell.mealDetail.text = [recipe.ingredients objectAtIndex:0];
+    cell.mealDetail.text = recipe.source;
+    cell.mealCalories.text = [@(recipe.calories) stringValue];
+    cell.mealServes.text = [@(recipe.yield) stringValue];
     cell.mealImage.image = nil;
     
     //Set cell background

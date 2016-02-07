@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *mealName;
 @property (strong, nonatomic) IBOutlet UILabel *mealDetail;
 @property (strong, nonatomic) IBOutlet UIImageView *mealImage;
+@property (strong, nonatomic) IBOutlet UILabel *mealServes;
+@property (strong, nonatomic) IBOutlet UILabel *mealCalories;
 
 @end
