@@ -26,6 +26,7 @@
 		2B2716791C673FFE001B34B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2716781C673FFE001B34B4 /* CoreData.framework */; };
 		2B27167C1C6741FF001B34B4 /* CookMeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		2B9AAE611C679C3800C0C992 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2B9AAE641C67ECDD00C0C992 /* MAValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AAE631C67ECDD00C0C992 /* MAValidator.swift */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		2B27167B1C6741FF001B34B4 /* CookMeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookMeModel.xcdatamodel; sourceTree = "<group>"; };
 		2B9AAE5F1C679C3800C0C992 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
 		2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
+		2B9AAE631C67ECDD00C0C992 /* MAValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAValidator.swift; sourceTree = "<group>"; };
+		2B9AAE671C67F47600C0C992 /* CookMe-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CookMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
 		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		2B2715DE1C62437E001B34B4 /* CookMe */ = {
 			isa = PBXGroup;
 			children = (
+				2B9AAE671C67F47600C0C992 /* CookMe-Bridging-Header.h */,
 				2B2716211C63961A001B34B4 /* Models */,
 				2B27167D1C6751AA001B34B4 /* ViewControllers */,
 				2B2716381C6529E1001B34B4 /* images */,
@@ -165,6 +169,7 @@
 				2B2716361C65152F001B34B4 /* MAHttpRequest.m */,
 				2B27164F1C66491C001B34B4 /* Validator.h */,
 				2B2716501C66491C001B34B4 /* Validator.m */,
+				2B9AAE631C67ECDD00C0C992 /* MAValidator.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 		2B2715D41C62437E001B34B4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = MartinApostolov;
 				TargetAttributes = {
@@ -330,6 +336,7 @@
 				2B2716511C66491C001B34B4 /* Validator.m in Sources */,
 				2B9AAE611C679C3800C0C992 /* FavoritesTableViewController.m in Sources */,
 				2B2715E11C62437E001B34B4 /* main.m in Sources */,
+				2B9AAE641C67ECDD00C0C992 /* MAValidator.swift in Sources */,
 				2B2716311C64DEB7001B34B4 /* RecipeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,11 +448,15 @@
 			baseConfigurationReference = FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = CookMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.martinapostolov.CookMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CookMe/CookMe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -454,11 +465,14 @@
 			baseConfigurationReference = 7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = CookMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.martinapostolov.CookMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CookMe/CookMe-Bridging-Header.h";
 			};
 			name = Release;
 		};

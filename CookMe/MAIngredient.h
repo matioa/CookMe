@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CookMe-Swift.h"
 
 @interface MAIngredient : NSObject
 

@@ -7,7 +7,9 @@
 //
 
 #import "MAIngredient.h"
-#import "Validator.h"
+//#import "Validator.h"
+#import "CookMe-Swift.h"
+
 
 @implementation MAIngredient
 
@@ -30,7 +32,11 @@
 }
 
 -(void)setName:(NSString *)name{
-    BOOL isValid = [Validator validateStringContainsAlphabetsOnly:name];
+//    BOOL isValid = [Validator validateStringContainsAlphabetsOnly:name];
+
+    MAValidator *instance = [[MAValidator alloc] init];
+    
+    BOOL isValid = [instance containsOnlyLetters:name];
     if (!isValid) {
         NSException* myException = [NSException
                                     exceptionWithName:@"WrongInput"
