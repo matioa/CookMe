@@ -17,10 +17,6 @@
 
 -(void) removeIngredientAtIndex: (long) index;
 
--(void) addIngredientToArray: (MAIngredient *) ingredient;
-
--(void) removeIngredientFromArray:(MAIngredient *) ingredient;
-
 -(NSArray*) getIngredientCombinations;
 
 @end

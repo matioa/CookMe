@@ -7,17 +7,15 @@
 //
 
 #import "RecipeViewController.h"
-#import "MAMeal.h"
+#import "MARecipe.h"
 #import "MAHttpRequest.h"
 #import "MBPRogressHud.h"
 #import "DetailsViewController.h"
 
 @interface RecipeViewController ()
-
 @property (strong, nonatomic) NSMutableArray *meals;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property int index;
-
 @end
 
 @implementation RecipeViewController
@@ -47,7 +45,6 @@
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Loading...";
     
-    
     NSString *urlStr = [MAHttpRequest urlStringWithQuery:@"chicken" from:from andTo:to];
     MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
     
@@ -56,74 +53,32 @@
         
         for(int i = 0; i< mealsDicts.count; i++){
             NSDictionary *singleMealDict = [mealsDicts objectAtIndex:i];
-            MAMeal *meal = [MAMeal mealWithDict:singleMealDict];
+            MARecipe *meal = [MARecipe mealWithDict:singleMealDict];
             [meals addObject:meal];
-            NSLog(@"Meal Name: %@",meal.name);
+            NSLog(@"Recipe name: %@",meal.name);
         }
-
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             if (!self.hud.isHidden) {
                 [self.hud hide:YES];
             }
-
+            
             [self.mealTableView reloadData];
         });
     }];
-    
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    
-//    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"Error: %@", error);
-//            return;
-//        }
-//        
-//        //Check the status code of the response
-//        if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
-//            
-//            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-//            
-//            if (statusCode != 200) {
-//                NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
-//                return;
-//            }else{
-//                NSLog(@"dataTaskWithRequest HTTP status code: %ld", (long)statusCode);
-//            }
-//        }
-//        
-//        //Convert data to dictionary
-//        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data
-//                                                             options:nil
-//                                                               error:nil];
-//        NSArray *mealsDicts = [dict objectForKey:@"hits"];
-//        NSMutableArray *meals = [NSMutableArray array];
-//        
-//        for(int i = 0; i< mealsDicts.count; i++){
-//            NSDictionary *singleMealDict = [mealsDicts objectAtIndex:i];
-//            MAMeal *meal = [MAMeal mealWithDict:singleMealDict];
-//            [meals addObject:meal];
-//                    NSLog(@"Meal Name: %@",meal.name);
-//        }
-//        
-//    }]
-//     resume];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.meals count];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    MAMeal *recipe = [self.meals objectAtIndex:indexPath.row];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    MARecipe *recipe = [self.meals objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"Cell";
     RecipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -151,8 +106,9 @@
             if (image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     RecipeTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
-                    if (updateCell)
+                    if (updateCell){
                         updateCell.mealImage.image = image;
+                    }
                 });
             }
         }
@@ -192,8 +148,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showDetails"]) {
         NSIndexPath *indexPath = [self.mealTableView indexPathForSelectedRow];
+        
         DetailsViewController *destViewController = segue.destinationViewController;
         destViewController.name = [[self.meals objectAtIndex:indexPath.row] name];
+        
         NSArray *ingredientsArray = [[self.meals objectAtIndex:indexPath.row] ingredients];
         NSString *ingredientsString = [[ingredientsArray valueForKey:@"description" ] componentsJoinedByString:@"\n"];
         destViewController.ingredients = ingredientsString;
@@ -204,13 +162,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -51,14 +51,12 @@
     [singleIngredientCombination addObject:ingredient];
     [self._ingredientsCombinations addObject:singleIngredientCombination];
     
-        int iterations = self._ingredientsCombinations.count-1;
-        for (int i=0; i<iterations; i++) {
-            NSMutableArray *newCombination = [NSMutableArray arrayWithArray:self._ingredientsCombinations[i]];
-            [newCombination addObject:ingredient];
-            [self._ingredientsCombinations addObject:newCombination];
-        }
-    
-
+    unsigned long iterations = self._ingredientsCombinations.count-1;
+    for (int i=0; i<iterations; i++) {
+        NSMutableArray *newCombination = [NSMutableArray arrayWithArray:self._ingredientsCombinations[i]];
+        [newCombination addObject:ingredient];
+        [self._ingredientsCombinations addObject:newCombination];
+    }
     
     NSLog(@"%@",self._ingredientsCombinations);
 }
@@ -71,6 +69,7 @@
             i--;
         }
     }
+    
     NSLog(@"%@",self._ingredientsCombinations);
 }
 

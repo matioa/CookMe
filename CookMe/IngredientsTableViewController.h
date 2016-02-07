@@ -11,9 +11,7 @@
 @interface IngredientsTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableVIew;
-
 @property (strong, nonatomic) NSMutableArray *ingredientsAvailable;
-
 
 @end
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MAMeal : NSObject
+@interface MARecipe : NSObject
 
 @property (strong,nonatomic) NSString *name;
 
@@ -21,13 +21,13 @@
 -(instancetype) initWithName: (NSString*) name
                  ingredients: (NSArray*) ingredients
                        image: (NSString*) image
-                   andMealId:(NSString*) mealId;
+                   andMealId: (NSString*) mealId;
 
-+(MAMeal*) mealWithName: (NSString*) name
-            ingredients: (NSArray*) ingredients
-                  image: (NSString*) image
-              andMealId:(NSString*) mealId;
++(MARecipe*) mealWithName: (NSString*) name
+              ingredients: (NSArray*) ingredients
+                    image: (NSString*) image
+                andMealId: (NSString*) mealId;
 
-+(MAMeal*) mealWithDict: (NSDictionary*) dict;
++(MARecipe*) mealWithDict: (NSDictionary*) dict;
 
 @end

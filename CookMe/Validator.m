@@ -15,15 +15,16 @@
     NSCharacterSet *strCharSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"];//1234567890_"];
     
     strCharSet = [strCharSet invertedSet];
-    //And you can then use a string method to find if your string contains anything in the inverted set:
+    //Use a string method to find if your string contains anything in the inverted set:
     
     NSRange r = [strng rangeOfCharacterFromSet:strCharSet];
     if (r.location != NSNotFound) {
         NSLog(@"the string contains illegal characters");
         return NO;
     }
-    else
+    else{
         return YES;
+    }
 }
 
 @end

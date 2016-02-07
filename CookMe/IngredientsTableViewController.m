@@ -15,17 +15,10 @@
 
 
 @interface IngredientsTableViewController()
-
 @property (nonatomic, strong) MBProgressHUD *hud;
-
 @end
 
 @implementation IngredientsTableViewController
-
-//-(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    [self.tableView reloadData];
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,12 +28,11 @@
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-
-
+    
+    
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     self.ingredientsAvailable = [NSMutableArray arrayWithArray:[delegate.data ingredients]];
-//    self.tableView.dataSource = self;
-    
+    //    self.tableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +41,7 @@
 }
 
 - (void)insertNewObject:(id)sender {
-
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add ingredient"
                                                                    message:@""
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -57,62 +49,53 @@
         textField.placeholder = @"Enter ingredient name";
     }];
     
-    UIAlertAction* add = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action) {
-                                                   
-                                                   UITextField *temp = alert.textFields.firstObject;
-                                                       @try
-                                                       {
-                                                       AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-                                                       [delegate.data addIngredient:[MAIngredient ingredientWithName:temp.text]];
-                                                       [self.ingredientsAvailable addObject:[MAIngredient ingredientWithName: temp.text]];
-                                                       [self.tableView reloadData];
-                                                       
-                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text] delay:1
-                                                                andNavigationController:self.navigationController.view];
-                                                           
-                                                           
-                                                           //Check the validity of the entered ingredient
-                                                           MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
-                                                           
-                                                           [httpRequest checkIngredientValidity:temp.text withCompletionHandler:^(BOOL result) {
-                                                               if (result == NO) {
-                                                               [delegate.data removeIngredientAtIndex:self.ingredientsAvailable.count-1];
-                                                                   [self.ingredientsAvailable removeLastObject];
-
-                                                                   
-                                                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                                                       [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ is not an ingredient", temp.text] delay:3
-                                                                                andNavigationController:self.navigationController.view];
-                                                                       [self.tableVIew reloadData];
-
-                                                                   });
-                                                               }
-                                                               
-                                                           }];
-                                                                                                                    
-                                                       }
-                                                       @catch(NSException *exception) {
-                                                           [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@", exception.reason] delay:3
-                                                                    andNavigationController:self.navigationController.view];
-                                                           return;
-                                                       }
-                                               }];
+    UIAlertAction* add = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                          {
+                              
+                              UITextField *temp = alert.textFields.firstObject;
+                              @try
+                              {
+                                  AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+                                  [delegate.data addIngredient:[MAIngredient ingredientWithName:temp.text]];
+                                  [self.ingredientsAvailable addObject:[MAIngredient ingredientWithName: temp.text]];
+                                  [self.tableView reloadData];
+                                  
+                                  [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text] delay:1
+                                           andNavigationController:self.navigationController.view];
+                                  
+                                  //Check the validity of the entered ingredient
+                                  MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
+                                  
+                                  [httpRequest checkIngredientValidity:temp.text withCompletionHandler:^(BOOL result) {
+                                      if (result == NO) {
+                                          [delegate.data removeIngredientAtIndex:self.ingredientsAvailable.count-1];
+                                          [self.ingredientsAvailable removeLastObject];
+                                          
+                                          
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ is not an ingredient", temp.text] delay:3
+                                                       andNavigationController:self.navigationController.view];
+                                              [self.tableVIew reloadData];
+                                          });
+                                      }
+                                  }];
+                                  
+                              }
+                              @catch(NSException *exception) {
+                                  [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@", exception.reason] delay:3
+                                           andNavigationController:self.navigationController.view];
+                                  return;
+                              }
+                          }];
     
-    UIAlertAction* cancel = [UIAlertAction
-                             actionWithTitle:@"Cancel"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                              {
                                  [alert dismissViewControllerAnimated:YES completion:nil];
-                                 
                              }];
+    
     [alert addAction:cancel];
     [alert addAction:add];
     [self presentViewController:alert animated:YES completion:nil];
-    
-
-
 }
 
 #pragma mark - Table View
@@ -127,8 +110,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
     }
+    
     cell.textLabel.text = [self.ingredientsAvailable[indexPath.row] name];
     
     return cell;
@@ -147,14 +130,13 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         long num = indexPath.row;
         NSString *ingredientName = [self.ingredientsAvailable[indexPath.row] name];
+        
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         [delegate.data removeIngredientAtIndex:num];
         [self.ingredientsAvailable removeObjectAtIndex:num];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ deleted", ingredientName] delay:1  andNavigationController:self.navigationController.view];
-        
-        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }

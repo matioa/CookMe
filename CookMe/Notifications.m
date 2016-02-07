@@ -8,7 +8,6 @@
 
 #import "Notifications.h"
 
-
 @implementation Notifications
 
 +(void) notifyWithMessage:(NSString *)message
@@ -27,5 +26,5 @@
     
     [hud hide:YES afterDelay:delay];
 }
-//self.navigationController.view 
+
 @end
