@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "RecipeTableViewCell.h"
+#import "MARecipe.h"
+#import "MAHttpRequest.h"
+#import "MBPRogressHud.h"
+#import "DetailsViewController.h"
 
 @interface RecipeTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 

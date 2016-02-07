@@ -7,26 +7,37 @@
 //
 
 #import "RecipeTableViewController.h"
-#import "MARecipe.h"
-#import "MAHttpRequest.h"
-#import "MBPRogressHud.h"
-#import "DetailsViewController.h"
 
 @interface RecipeTableViewController ()
 @property (strong, nonatomic) NSMutableArray *meals;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property int index;
 @property (nonatomic,strong) UILongPressGestureRecognizer *lpgr;
+@property (strong,nonatomic) NSMutableArray *searchCombinations;
+@property int combinationIndex;
 @end
 
 @implementation RecipeTableViewController
 
 @synthesize meals;
 
+-(void)viewWillAppear:(BOOL)animated{
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        self.searchCombinations = [NSMutableArray arrayWithArray:[delegate.data getIngredientCombinations]];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Recipe suggestions";
+    
+    UIBarButtonItem *newSuggestion = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(makeNewSuggestion)];
+    self.navigationItem.rightBarButtonItem = newSuggestion;
+    
     self.meals = [NSMutableArray array];
+    
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    self.searchCombinations = [NSMutableArray arrayWithArray:[delegate.data getIngredientCombinations]];
+    self.combinationIndex = 0;
     
     self.mealTableView.dataSource = self;
     [self.mealTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -35,11 +46,24 @@
     [self getMealsFrom:self.index andTo:self.index+20];
     self.index +=20;
     
+
+    
+    //Long press Gesture
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.5; //seconds
     lpgr.delegate = self;
     [self.mealTableView addGestureRecognizer:lpgr];
+    
+    //Swipe Left Gesture
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    //Swipe Rigth Gesture
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +76,9 @@
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Loading...";
     
-    NSString *urlStr = [MAHttpRequest urlStringWithQuery:@"chicken" from:from andTo:to];
+    NSArray *searchArray =[self.searchCombinations objectAtIndex:self.combinationIndex];
+    NSString *searchString = [[searchArray valueForKey:@"description"] componentsJoinedByString:@","];
+    NSString *urlStr = [MAHttpRequest urlStringWithQuery:searchString from:from andTo:to];
     MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
     
     [httpRequest getRequest:urlStr withCompletionHandler:^(NSDictionary * _Nullable dict) {
@@ -73,6 +99,17 @@
             [self.mealTableView reloadData];
         });
     }];
+}
+
+- (void)makeNewSuggestion {
+    int cases = self.searchCombinations.count;
+    int currentCase = self.combinationIndex;
+    int nextCase = (currentCase+1) % cases;
+    NSLog(@"Index: %d",nextCase);
+        self.combinationIndex = nextCase;
+    [self.meals removeAllObjects];
+        [self getMealsFrom:self.index andTo:self.index+20];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -191,6 +228,19 @@
     }
 }
 
+- (IBAction)tappedRightButton:(id)sender
+{
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    [self.tabBarController setSelectedIndex:selectedIndex + 1];
+}
+
+- (IBAction)tappedLeftButton:(id)sender
+{
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    [self.tabBarController setSelectedIndex:selectedIndex - 1];
+}
 
 
 /*

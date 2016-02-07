@@ -26,13 +26,26 @@
     self.title = @"Ingredients list";
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     self.ingredientsAvailable = [NSMutableArray arrayWithArray:[delegate.data ingredients]];
     //    self.tableView.dataSource = self;
+    
+    //Swipe Left or right
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGesture.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tapGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender {
+- (void)insertNewObject {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Add ingredient"
                                                                    message:@""
@@ -153,6 +166,26 @@
         [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ deleted", ingredientName] delay:1  andNavigationController:self.navigationController.view];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }
+}
+
+- (IBAction)tappedRightButton:(id)sender
+{
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    [self.tabBarController setSelectedIndex:selectedIndex + 1];
+}
+
+- (IBAction)tappedLeftButton:(id)sender
+{
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    [self.tabBarController setSelectedIndex:selectedIndex - 1];
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        [self insertNewObject];
     }
 }
 

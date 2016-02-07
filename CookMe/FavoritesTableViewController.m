@@ -47,6 +47,14 @@
     self.mealTableView.dataSource = self;
     [self.mealTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    //Swipe Left or right
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
     
 }
 
@@ -176,6 +184,19 @@
     }
 }
 
+- (IBAction)tappedRightButton:(id)sender
+{
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    [self.tabBarController setSelectedIndex:selectedIndex + 1];
+}
+
+- (IBAction)tappedLeftButton:(id)sender
+{
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    [self.tabBarController setSelectedIndex:selectedIndex - 1];
+}
 
 
 /*
