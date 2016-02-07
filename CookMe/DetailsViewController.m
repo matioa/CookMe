@@ -21,9 +21,11 @@
 @synthesize name;
 @synthesize ingredients;
 @synthesize imageUrl;
+@synthesize mealId;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"Recipe detials";
     self.recipeName.text = self.name;
     self.recipeIngredients.text = self.ingredients;
@@ -46,6 +48,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)addToFavorites:(id)sender {
+    NSString *wrongUrl = self.mealId;
+    NSString *correctedUrl = [wrongUrl stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
+    
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.data addToFavorite:correctedUrl];
+    NSLog(@"added to favorites");
+    [Notifications notifyWithMessage:@"Recipe added to favorites" delay:1 andNavigationController:self.navigationController.view];
+    
+}
+
 
 /*
  #pragma mark - Navigation

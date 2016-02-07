@@ -42,4 +42,6 @@
 
 +(MARecipe*) recipeWithDict: (NSDictionary*) dict;
 
++(MARecipe*) recipeWithDictFromId: (NSDictionary*) dict;
+
 @end

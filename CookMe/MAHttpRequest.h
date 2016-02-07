@@ -18,4 +18,7 @@
                            from:(int) from
                           andTo:(int) to;
 
++(NSString *)urlStringWithId: (NSString *)mealId;
+
+- (void)getRequestFromId:(NSString *)urlStr withCompletionHandler:(void (^)(NSDictionary * __nullable dict))completionHandler;
 @end

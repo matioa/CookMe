@@ -6,19 +6,20 @@
 //  Copyright © 2016 MartinApostolov. All rights reserved.
 //
 
-#import "RecipeViewController.h"
+#import "RecipeTableViewController.h"
 #import "MARecipe.h"
 #import "MAHttpRequest.h"
 #import "MBPRogressHud.h"
 #import "DetailsViewController.h"
 
-@interface RecipeViewController ()
+@interface RecipeTableViewController ()
 @property (strong, nonatomic) NSMutableArray *meals;
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property int index;
+@property (nonatomic,strong) UILongPressGestureRecognizer *lpgr;
 @end
 
-@implementation RecipeViewController
+@implementation RecipeTableViewController
 
 @synthesize meals;
 
@@ -33,6 +34,12 @@
     
     [self getMealsFrom:self.index andTo:self.index+20];
     self.index +=20;
+    
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.5; //seconds
+    lpgr.delegate = self;
+    [self.mealTableView addGestureRecognizer:lpgr];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -159,8 +166,31 @@
         destViewController.ingredients = ingredientsString;
         NSString *url =[[self.meals objectAtIndex:indexPath.row] image];
         destViewController.imageUrl = url;
+        NSString *mealId =[[self.meals objectAtIndex:indexPath.row] mealId];
+        destViewController.mealId = mealId;
+        
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:destViewController action:@selector(addToFavorites:)];
+        destViewController.self.navigationItem.rightBarButtonItem = addButton;
     }
 }
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.mealTableView];
+    NSIndexPath *indexPath = [self.mealTableView indexPathForRowAtPoint:p];
+    
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"long press on table view at row %ld", indexPath.row);
+        NSString *wrongUrl = [[self.meals objectAtIndex:indexPath.row] mealId];
+        NSString *correctedUrl = [wrongUrl stringByReplacingOccurrencesOfString:@"#" withString:@"%23"];
+        
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate.data addToFavorite:correctedUrl];
+        NSLog(@"added to favorites");
+        [Notifications notifyWithMessage:@"Recipe added to favorites" delay:1 andNavigationController:self.navigationController.view];
+    }
+}
+
 
 
 /*

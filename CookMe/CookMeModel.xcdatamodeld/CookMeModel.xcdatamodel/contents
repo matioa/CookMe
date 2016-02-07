@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="Favorites" syncable="YES">
+        <attribute name="mealId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Ingredients" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Ingredients" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Favorites" positionX="-63" positionY="-9" width="128" height="60"/>
     </elements>
 </model>

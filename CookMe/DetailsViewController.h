@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LocalData.h"
+#import "AppDelegate.h"
+#import "Notifications.h"
 
 @interface DetailsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *recipeName;
@@ -16,5 +19,6 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *ingredients;
 @property (strong, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) NSString *mealId;
 
 @end

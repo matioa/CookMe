@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecipeTableViewCell.h"
 
-@interface RecipeViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
+@interface RecipeTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *mealTableView;
 

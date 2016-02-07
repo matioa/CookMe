@@ -16,7 +16,7 @@
 		2B2716201C6393BB001B34B4 /* MAIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27161F1C6393BB001B34B4 /* MAIngredient.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716251C63BD96001B34B4 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716241C63BD96001B34B4 /* LocalData.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716281C63D4DB001B34B4 /* Notifications.m */; settings = {ASSET_TAGS = (); }; };
-		2B2716311C64DEB7001B34B4 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716301C64DEB7001B34B4 /* RecipeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716311C64DEB7001B34B4 /* RecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716301C64DEB7001B34B4 /* RecipeTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716341C650B06001B34B4 /* MARecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716331C650B06001B34B4 /* MARecipe.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716361C65152F001B34B4 /* MAHttpRequest.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716391C6529E1001B34B4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 2B2716381C6529E1001B34B4 /* images */; settings = {ASSET_TAGS = (); }; };
@@ -25,6 +25,7 @@
 		2B2716511C66491C001B34B4 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716501C66491C001B34B4 /* Validator.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716791C673FFE001B34B4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B2716781C673FFE001B34B4 /* CoreData.framework */; };
 		2B27167C1C6741FF001B34B4 /* CookMeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		2B9AAE611C679C3800C0C992 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +46,8 @@
 		2B2716241C63BD96001B34B4 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalData.m; sourceTree = "<group>"; };
 		2B2716271C63D4DB001B34B4 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		2B2716281C63D4DB001B34B4 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
-		2B27162F1C64DEB7001B34B4 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
-		2B2716301C64DEB7001B34B4 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
+		2B27162F1C64DEB7001B34B4 /* RecipeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewController.h; sourceTree = "<group>"; };
+		2B2716301C64DEB7001B34B4 /* RecipeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewController.m; sourceTree = "<group>"; };
 		2B2716321C650B06001B34B4 /* MARecipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MARecipe.h; sourceTree = "<group>"; };
 		2B2716331C650B06001B34B4 /* MARecipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MARecipe.m; sourceTree = "<group>"; };
 		2B2716351C65152F001B34B4 /* MAHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAHttpRequest.h; sourceTree = "<group>"; };
@@ -60,6 +61,8 @@
 		2B2716501C66491C001B34B4 /* Validator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validator.m; sourceTree = "<group>"; };
 		2B2716781C673FFE001B34B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2B27167B1C6741FF001B34B4 /* CookMeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CookMeModel.xcdatamodel; sourceTree = "<group>"; };
+		2B9AAE5F1C679C3800C0C992 /* FavoritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesTableViewController.h; sourceTree = "<group>"; };
+		2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
 		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		2B2715DE1C62437E001B34B4 /* CookMe */ = {
 			isa = PBXGroup;
 			children = (
+				2B2716211C63961A001B34B4 /* Models */,
 				2B27167D1C6751AA001B34B4 /* ViewControllers */,
 				2B2716381C6529E1001B34B4 /* images */,
 				2B2716261C63D4B5001B34B4 /* Helpers */,
@@ -148,7 +152,6 @@
 			children = (
 				2B2716231C63BD96001B34B4 /* LocalData.h */,
 				2B2716241C63BD96001B34B4 /* LocalData.m */,
-				2B2716211C63961A001B34B4 /* Models */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -171,12 +174,14 @@
 			children = (
 				2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */,
 				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
-				2B27162F1C64DEB7001B34B4 /* RecipeViewController.h */,
-				2B2716301C64DEB7001B34B4 /* RecipeViewController.m */,
+				2B27162F1C64DEB7001B34B4 /* RecipeTableViewController.h */,
+				2B2716301C64DEB7001B34B4 /* RecipeTableViewController.m */,
 				2B2716461C65E349001B34B4 /* RecipeTableViewCell.h */,
 				2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */,
 				2B27164C1C66383D001B34B4 /* DetailsViewController.h */,
 				2B27164D1C66383D001B34B4 /* DetailsViewController.m */,
+				2B9AAE5F1C679C3800C0C992 /* FavoritesTableViewController.h */,
+				2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -323,8 +328,9 @@
 				2B27167C1C6741FF001B34B4 /* CookMeModel.xcdatamodeld in Sources */,
 				2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */,
 				2B2716511C66491C001B34B4 /* Validator.m in Sources */,
+				2B9AAE611C679C3800C0C992 /* FavoritesTableViewController.m in Sources */,
 				2B2715E11C62437E001B34B4 /* main.m in Sources */,
-				2B2716311C64DEB7001B34B4 /* RecipeViewController.m in Sources */,
+				2B2716311C64DEB7001B34B4 /* RecipeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MAIngredient.h"
+#import "MARecipe.h"
 
 @interface LocalData : NSObject
 
@@ -18,5 +19,11 @@
 -(void) removeIngredientAtIndex: (long) index;
 
 -(NSArray*) getIngredientCombinations;
+
+-(NSArray*) favorites;
+
+-(void) addToFavorite: (NSString *) recipeId;
+
+-(void) removeRecipeAtIndex: (long) index;
 
 @end

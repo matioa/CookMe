@@ -71,4 +71,19 @@
     return [MARecipe recipeWithName:name shareAs:shareAs source:source calories:calories yield:yield recipeUrl:recipeUrl ingredients:ingredients image:image andMealId:mealId];
 }
 
++(MARecipe*) recipeWithDictFromId: (NSDictionary*) dict
+{
+    NSString *name = [dict objectForKey:@"label"];
+    NSString *shareAs = [dict objectForKey:@"shareAs"];
+    NSString *source = [dict objectForKey:@"source"];
+    int calories = [[dict objectForKey:@"calories"] integerValue];
+    int yield = [[dict objectForKey:@"yield"] integerValue];
+    NSString *recipeUrl = [dict objectForKey:@"url"];
+    NSArray *ingredients = [dict objectForKey:@"ingredientLines"];
+    NSString *image = [dict objectForKey:@"image"];
+    NSString *mealId = [dict objectForKey:@"uri"];
+    
+    return [MARecipe recipeWithName:name shareAs:shareAs source:source calories:calories yield:yield recipeUrl:recipeUrl ingredients:ingredients image:image andMealId:mealId];
+}
+
 @end
