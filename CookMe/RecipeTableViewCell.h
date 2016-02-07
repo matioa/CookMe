@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MealTableViewCell : UITableViewCell
+@interface RecipeTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UITextView *mealName;
 @property (strong, nonatomic) IBOutlet UILabel *mealDetail;

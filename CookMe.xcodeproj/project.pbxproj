@@ -16,11 +16,11 @@
 		2B2716201C6393BB001B34B4 /* MAIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27161F1C6393BB001B34B4 /* MAIngredient.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716251C63BD96001B34B4 /* LocalData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716241C63BD96001B34B4 /* LocalData.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716281C63D4DB001B34B4 /* Notifications.m */; settings = {ASSET_TAGS = (); }; };
-		2B2716311C64DEB7001B34B4 /* MealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716301C64DEB7001B34B4 /* MealsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716311C64DEB7001B34B4 /* RecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716301C64DEB7001B34B4 /* RecipeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716341C650B06001B34B4 /* MAMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716331C650B06001B34B4 /* MAMeal.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716361C65152F001B34B4 /* MAHttpRequest.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716391C6529E1001B34B4 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 2B2716381C6529E1001B34B4 /* images */; settings = {ASSET_TAGS = (); }; };
-		2B2716481C65E349001B34B4 /* MealTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716471C65E349001B34B4 /* MealTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2B2716481C65E349001B34B4 /* RecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		2B27164E1C66383D001B34B4 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B27164D1C66383D001B34B4 /* DetailsViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B2716511C66491C001B34B4 /* Validator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2716501C66491C001B34B4 /* Validator.m */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
@@ -43,15 +43,15 @@
 		2B2716241C63BD96001B34B4 /* LocalData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalData.m; sourceTree = "<group>"; };
 		2B2716271C63D4DB001B34B4 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		2B2716281C63D4DB001B34B4 /* Notifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notifications.m; sourceTree = "<group>"; };
-		2B27162F1C64DEB7001B34B4 /* MealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealsViewController.h; sourceTree = "<group>"; };
-		2B2716301C64DEB7001B34B4 /* MealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealsViewController.m; sourceTree = "<group>"; };
+		2B27162F1C64DEB7001B34B4 /* RecipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeViewController.h; sourceTree = "<group>"; };
+		2B2716301C64DEB7001B34B4 /* RecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeViewController.m; sourceTree = "<group>"; };
 		2B2716321C650B06001B34B4 /* MAMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAMeal.h; sourceTree = "<group>"; };
 		2B2716331C650B06001B34B4 /* MAMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAMeal.m; sourceTree = "<group>"; };
 		2B2716351C65152F001B34B4 /* MAHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAHttpRequest.h; sourceTree = "<group>"; };
 		2B2716361C65152F001B34B4 /* MAHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAHttpRequest.m; sourceTree = "<group>"; };
 		2B2716381C6529E1001B34B4 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
-		2B2716461C65E349001B34B4 /* MealTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealTableViewCell.h; sourceTree = "<group>"; };
-		2B2716471C65E349001B34B4 /* MealTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealTableViewCell.m; sourceTree = "<group>"; };
+		2B2716461C65E349001B34B4 /* RecipeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeTableViewCell.h; sourceTree = "<group>"; };
+		2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableViewCell.m; sourceTree = "<group>"; };
 		2B27164C1C66383D001B34B4 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		2B27164D1C66383D001B34B4 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		2B27164F1C66491C001B34B4 /* Validator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validator.h; sourceTree = "<group>"; };
@@ -132,10 +132,10 @@
 			children = (
 				2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */,
 				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
-				2B27162F1C64DEB7001B34B4 /* MealsViewController.h */,
-				2B2716301C64DEB7001B34B4 /* MealsViewController.m */,
-				2B2716461C65E349001B34B4 /* MealTableViewCell.h */,
-				2B2716471C65E349001B34B4 /* MealTableViewCell.m */,
+				2B27162F1C64DEB7001B34B4 /* RecipeViewController.h */,
+				2B2716301C64DEB7001B34B4 /* RecipeViewController.m */,
+				2B2716461C65E349001B34B4 /* RecipeTableViewCell.h */,
+				2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */,
 				2B27164C1C66383D001B34B4 /* DetailsViewController.h */,
 				2B27164D1C66383D001B34B4 /* DetailsViewController.m */,
 			);
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B2716481C65E349001B34B4 /* MealTableViewCell.m in Sources */,
+				2B2716481C65E349001B34B4 /* RecipeTableViewCell.m in Sources */,
 				2B2716341C650B06001B34B4 /* MAMeal.m in Sources */,
 				2B2716251C63BD96001B34B4 /* LocalData.m in Sources */,
 				2B27164E1C66383D001B34B4 /* DetailsViewController.m in Sources */,
@@ -316,7 +316,7 @@
 				2B2716291C63D4DB001B34B4 /* Notifications.m in Sources */,
 				2B2716511C66491C001B34B4 /* Validator.m in Sources */,
 				2B2715E11C62437E001B34B4 /* main.m in Sources */,
-				2B2716311C64DEB7001B34B4 /* MealsViewController.m in Sources */,
+				2B2716311C64DEB7001B34B4 /* RecipeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

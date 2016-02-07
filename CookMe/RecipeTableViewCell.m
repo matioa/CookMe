@@ -6,9 +6,9 @@
 //  Copyright © 2016 MartinApostolov. All rights reserved.
 //
 
-#import "MealTableViewCell.h"
+#import "RecipeTableViewCell.h"
 
-@implementation MealTableViewCell
+@implementation RecipeTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

@@ -6,13 +6,13 @@
 //  Copyright © 2016 MartinApostolov. All rights reserved.
 //
 
-#import "MealsViewController.h"
+#import "RecipeViewController.h"
 #import "MAMeal.h"
 #import "MAHttpRequest.h"
 #import "MBPRogressHud.h"
 #import "DetailsViewController.h"
 
-@interface MealsViewController ()
+@interface RecipeViewController ()
 
 @property (strong, nonatomic) NSMutableArray *meals;
 @property (nonatomic, strong) MBProgressHUD *hud;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation MealsViewController
+@implementation RecipeViewController
 
 @synthesize meals;
 
@@ -126,10 +126,10 @@
     MAMeal *recipe = [self.meals objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"Cell";
-    MealTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    RecipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
-        cell = [[MealTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[RecipeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     //Set cell title and description from array
@@ -150,7 +150,7 @@
             UIImage *image = [UIImage imageWithData:data];
             if (image) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    MealTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
+                    RecipeTableViewCell *updateCell = (id)[tableView cellForRowAtIndexPath:indexPath];
                     if (updateCell)
                         updateCell.mealImage.image = image;
                 });
