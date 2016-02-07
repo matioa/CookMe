@@ -108,13 +108,12 @@
 		2B2715DE1C62437E001B34B4 /* CookMe */ = {
 			isa = PBXGroup;
 			children = (
+				2B27167D1C6751AA001B34B4 /* ViewControllers */,
 				2B2716381C6529E1001B34B4 /* images */,
 				2B2716261C63D4B5001B34B4 /* Helpers */,
 				2B2715E21C62437E001B34B4 /* AppDelegate.h */,
 				2B2715E31C62437E001B34B4 /* AppDelegate.m */,
 				2B2716221C63BD7D001B34B4 /* Data */,
-				2B2716211C63961A001B34B4 /* Models */,
-				2B27161D1C6385A8001B34B4 /* ViewModels */,
 				2B2715E81C62437E001B34B4 /* Main.storyboard */,
 				2B2715EB1C62437E001B34B4 /* Assets.xcassets */,
 				2B2715ED1C62437E001B34B4 /* LaunchScreen.storyboard */,
@@ -133,21 +132,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2B27161D1C6385A8001B34B4 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */,
-				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
-				2B27162F1C64DEB7001B34B4 /* RecipeViewController.h */,
-				2B2716301C64DEB7001B34B4 /* RecipeViewController.m */,
-				2B2716461C65E349001B34B4 /* RecipeTableViewCell.h */,
-				2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */,
-				2B27164C1C66383D001B34B4 /* DetailsViewController.h */,
-				2B27164D1C66383D001B34B4 /* DetailsViewController.m */,
-			);
-			name = ViewModels;
-			sourceTree = "<group>";
-		};
 		2B2716211C63961A001B34B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +148,7 @@
 			children = (
 				2B2716231C63BD96001B34B4 /* LocalData.h */,
 				2B2716241C63BD96001B34B4 /* LocalData.m */,
+				2B2716211C63961A001B34B4 /* Models */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -179,6 +164,21 @@
 				2B2716501C66491C001B34B4 /* Validator.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		2B27167D1C6751AA001B34B4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B2715E51C62437E001B34B4 /* IngredientsTableViewController.h */,
+				2B2715E61C62437E001B34B4 /* IngredientsTableViewController.m */,
+				2B27162F1C64DEB7001B34B4 /* RecipeViewController.h */,
+				2B2716301C64DEB7001B34B4 /* RecipeViewController.m */,
+				2B2716461C65E349001B34B4 /* RecipeTableViewCell.h */,
+				2B2716471C65E349001B34B4 /* RecipeTableViewCell.m */,
+				2B27164C1C66383D001B34B4 /* DetailsViewController.h */,
+				2B27164D1C66383D001B34B4 /* DetailsViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		B24915EB990EA5A70D947935 /* Frameworks */ = {

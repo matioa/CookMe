@@ -55,9 +55,23 @@
                               UITextField *temp = alert.textFields.firstObject;
                               @try
                               {
+                                  MAIngredient *newIngredient =[MAIngredient ingredientWithName: temp.text];
+                                  int iterations = self.ingredientsAvailable.count;
+                                  for (int i=0; i<iterations; i++) {
+                                      NSString *name = [[self.ingredientsAvailable objectAtIndex:i] name];
+                                      NSString *newName = temp.text;
+                                      if ([name isEqual:newName]) {
+                                          dispatch_async(dispatch_get_main_queue(), ^{
+                                              [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ already exists", newIngredient.name] delay:1
+                                                       andNavigationController:self.navigationController.view];
+                                          });
+                                          return;
+                                      }
+                                  }
+                                  
                                   AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-                                  [delegate.data addIngredient:[MAIngredient ingredientWithName:temp.text]];
-                                  [self.ingredientsAvailable addObject:[MAIngredient ingredientWithName: temp.text]];
+                                  [delegate.data addIngredient:newIngredient];
+                                  [self.ingredientsAvailable addObject:newIngredient];
                                   [self.tableView reloadData];
                                   
                                   [Notifications notifyWithMessage:[NSString stringWithFormat:@"%@ added", temp.text] delay:1
