@@ -27,6 +27,7 @@
 		2B27167C1C6741FF001B34B4 /* CookMeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		2B9AAE611C679C3800C0C992 /* FavoritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		2B9AAE641C67ECDD00C0C992 /* MAValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AAE631C67ECDD00C0C992 /* MAValidator.swift */; settings = {ASSET_TAGS = (); }; };
+		2B9AAE691C68789000C0C992 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9AAE681C68789000C0C992 /* RatingControl.swift */; settings = {ASSET_TAGS = (); }; };
 		B5907F93D1FE00A0BBB1540D /* libPods-CookMe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		2B9AAE601C679C3800C0C992 /* FavoritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesTableViewController.m; sourceTree = "<group>"; };
 		2B9AAE631C67ECDD00C0C992 /* MAValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAValidator.swift; sourceTree = "<group>"; };
 		2B9AAE671C67F47600C0C992 /* CookMe-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CookMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		2B9AAE681C68789000C0C992 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		63E1A629D77F2F408AE0CFAF /* libPods-CookMe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CookMe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7506A61EA99DD8BD0692EAB4 /* Pods-CookMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.release.xcconfig"; sourceTree = "<group>"; };
 		FF88EC9B77281625295E258A /* Pods-CookMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CookMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CookMe/Pods-CookMe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				2B2715F01C62437E001B34B4 /* Info.plist */,
 				2B2715DF1C62437E001B34B4 /* Supporting Files */,
 				2B27167A1C6741FF001B34B4 /* CookMeModel.xcdatamodeld */,
+				2B9AAE681C68789000C0C992 /* RatingControl.swift */,
 			);
 			path = CookMe;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				2B2716341C650B06001B34B4 /* MARecipe.m in Sources */,
 				2B2716251C63BD96001B34B4 /* LocalData.m in Sources */,
 				2B27164E1C66383D001B34B4 /* DetailsViewController.m in Sources */,
+				2B9AAE691C68789000C0C992 /* RatingControl.swift in Sources */,
 				2B2716201C6393BB001B34B4 /* MAIngredient.m in Sources */,
 				2B2715E71C62437E001B34B4 /* IngredientsTableViewController.m in Sources */,
 				2B2716371C65152F001B34B4 /* MAHttpRequest.m in Sources */,
