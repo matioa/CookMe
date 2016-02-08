@@ -9,10 +9,6 @@
 import Foundation
 
 @objc class MAValidator: NSObject{
-//    
-//    class func `new`() -> MAValidator {
-//        return MAValidator()
-//    }
     
     func containsOnlyLetters(input: String) -> Bool {
         for chr in input.characters {

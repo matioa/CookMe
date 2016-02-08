@@ -41,9 +41,6 @@
                 });
             }];
         }
-        
-//        self.favoriteMealIds = [NSMutableArray arrayWithArray:[delegate.data favorites]];
-
     }
 }
 
@@ -54,7 +51,7 @@
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     self.favoriteMealIds = [NSMutableArray arrayWithArray:[delegate.data favorites]];
     
-  
+    
     if (!self.favoriteMealIds.count==0) {
         [self getFavorites];
     }
@@ -97,7 +94,7 @@
         MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
         [httpRequest getRequestFromId:urlStr withCompletionHandler:^(NSDictionary * _Nullable dict) {
             NSString *label = [dict objectForKey:@"label"];
-
+            
             MARecipe *meal = [MARecipe recipeWithDictFromId:dict];
             [self.recipies addObject:meal];
             
