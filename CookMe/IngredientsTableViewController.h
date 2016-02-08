@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MAIngredient.h"
+#import "Notifications.h"
+#import "LocalData.h"
+#import "AppDelegate.h"
+#import "MAHttpRequest.h"
 
 @interface IngredientsTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 

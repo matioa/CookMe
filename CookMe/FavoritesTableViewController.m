@@ -8,7 +8,6 @@
 
 #import "FavoritesTableViewController.h"
 
-
 @interface FavoritesTableViewController ()
 @property (strong, nonatomic) NSMutableArray *favoriteMealIds;
 @property (strong, nonatomic) NSMutableArray *recipies;
@@ -17,45 +16,61 @@
 
 @implementation FavoritesTableViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    if (self.favoriteMealIds.count == 0) {
+        [Notifications notifyWithMessage:@"No saved favorite recipe" delay:1 andNavigationController:self.navigationController.view];
+    }else{
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        int currentItems = self.favoriteMealIds.count;
+        NSArray *items =[NSMutableArray arrayWithArray:[delegate.data favorites]];
+        int totalItems = items.count;
+        for (int i=currentItems+1; i<totalItems; i++) {
+            [self.favoriteMealIds addObject:items[i]];
+            NSString *urlStr = [MAHttpRequest urlStringWithId:[items[i] mealId]];
+            MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
+            [httpRequest getRequestFromId:urlStr withCompletionHandler:^(NSDictionary * _Nullable dict) {
+                NSString *label = [dict objectForKey:@"label"];
+                
+                MARecipe *meal = [MARecipe recipeWithDictFromId:dict];
+                [self.recipies addObject:meal];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.mealTableView reloadData];
+                });
+            }];
+        }
+        
+//        self.favoriteMealIds = [NSMutableArray arrayWithArray:[delegate.data favorites]];
 
-//-(void)viewWillAppear:(BOOL)animated:(BOOL)animated{
-//    [super viewWillAppear:animated];
-//    
-//    
-//        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-//    [self.favoriteMealIds removeAllObjects];
-//    self.favoriteMealIds = [NSMutableArray arrayWithArray:[delegate.data favorites]];
-//    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        if (!self.hud.isHidden) {
-//            [self.hud hide:YES];
-//        }
-//        
-//        [self.mealTableView reloadData];
-//    });
-//}
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Favorite recipies";
     self.recipies = [NSMutableArray array];
-        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     self.favoriteMealIds = [NSMutableArray arrayWithArray:[delegate.data favorites]];
-    //    [self.favoriteMealIds addObject:@"http://www.edamam.com/ontologies/edamam.owl%23recipe_c468dc28f8b64bb711125cc150b15c25"];
-    [self getFavorites];
+    
+  
+    if (!self.favoriteMealIds.count==0) {
+        [self getFavorites];
+    }
     
     self.mealTableView.dataSource = self;
     [self.mealTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    //Swipe Left or right
+    //Gestures - Swipe Left
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     
+    //Gestures - Swipe Right
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeRight];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,18 +92,14 @@
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Loading...";
     
-    
     for (int i=0; i<self.favoriteMealIds.count; i++) {
         NSString *urlStr = [MAHttpRequest urlStringWithId:[self.favoriteMealIds[i] mealId]];
         MAHttpRequest *httpRequest = [[MAHttpRequest alloc] init];
         [httpRequest getRequestFromId:urlStr withCompletionHandler:^(NSDictionary * _Nullable dict) {
             NSString *label = [dict objectForKey:@"label"];
-            NSLog(@"%@",label);
-            //
+
             MARecipe *meal = [MARecipe recipeWithDictFromId:dict];
             [self.recipies addObject:meal];
-            NSLog(@"Recipe name: %@",meal.name);
-            NSLog(@"Meal object: %@", [self.recipies objectAtIndex:0]);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!self.hud.isHidden) {
@@ -103,14 +114,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
     static NSString *CellIdentifier = @"Cell2";
     RecipeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
         cell = [[RecipeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
     
     MARecipe *recipe = [self.recipies objectAtIndex:indexPath.row];
     
@@ -143,6 +153,8 @@
         }
     }];
     [task resume];
+    
+    
     
     return cell;
 }
@@ -197,60 +209,5 @@
     
     [self.tabBarController setSelectedIndex:selectedIndex - 1];
 }
-
-
-/*
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
- 
- // Configure the cell...
- 
- return cell;
- }
- */
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

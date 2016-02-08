@@ -7,12 +7,6 @@
 //
 
 #import "IngredientsTableViewController.h"
-#import "MAIngredient.h"
-#import "Notifications.h"
-#import "LocalData.h"
-#import "AppDelegate.h"
-#import "MAHttpRequest.h"
-
 
 @interface IngredientsTableViewController()
 @property (nonatomic, strong) MBProgressHUD *hud;
@@ -24,25 +18,32 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.title = @"Ingredients list";
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
+    //Navigation button -Add
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
-    
     
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     self.ingredientsAvailable = [NSMutableArray arrayWithArray:[delegate.data ingredients]];
     //    self.tableView.dataSource = self;
     
-    //Swipe Left or right
+    if (self.ingredientsAvailable.count == 0) {
+        [Notifications notifyWithMessage:@"Start by entering ingredients" delay:2 andNavigationController:self.navigationController.view];
+    }
+
+    
+    //Gesture - Swipe Left
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     
+    //Gesture - Swipe Right
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeRight];
     
+    //Gesture - Double tap
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapGesture.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:tapGesture];
@@ -169,6 +170,7 @@
     }
 }
 
+#pragma mark - Gestures
 - (IBAction)tappedRightButton:(id)sender
 {
     NSUInteger selectedIndex = [self.tabBarController selectedIndex];

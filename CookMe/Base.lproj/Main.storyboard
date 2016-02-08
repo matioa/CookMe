@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Ingredients Table View Controller-->
         <scene sceneID="wj0-v4-RDh">
             <objects>
                 <tableViewController id="All-ig-qlK" customClass="IngredientsTableViewController" sceneMemberID="viewController">
@@ -20,7 +20,6 @@
                             <outlet property="delegate" destination="All-ig-qlK" id="1jr-8C-Xhi"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="eSf-34-eST"/>
                     <navigationItem key="navigationItem" id="jyV-wS-6ur"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>

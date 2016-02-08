@@ -22,8 +22,8 @@
 @synthesize meals;
 
 -(void)viewWillAppear:(BOOL)animated{
-        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-        self.searchCombinations = [NSMutableArray arrayWithArray:[delegate.data getIngredientCombinations]];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    self.searchCombinations = [NSMutableArray arrayWithArray:[delegate.data getIngredientCombinations]];
 }
 
 - (void)viewDidLoad {
@@ -46,21 +46,19 @@
     [self getMealsFrom:self.index andTo:self.index+20];
     self.index +=20;
     
-
-    
-    //Long press Gesture
+    //Gesture - Long press
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(handleLongPress:)];
     lpgr.minimumPressDuration = 1.5; //seconds
     lpgr.delegate = self;
     [self.mealTableView addGestureRecognizer:lpgr];
     
-    //Swipe Left Gesture
+    //Gesture - Swipe Left
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedRightButton:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     
-    //Swipe Rigth Gesture
+    //Gesture - Swipe Rigth
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tappedLeftButton:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeRight];
@@ -71,6 +69,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Http Requests
 
 -(void)getMealsFrom: (int) from andTo: (int) to{
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -88,7 +87,6 @@
             NSDictionary *singleMealDict = [mealsDicts objectAtIndex:i];
             MARecipe *meal = [MARecipe recipeWithDict:singleMealDict];
             [meals addObject:meal];
-            NSLog(@"Recipe name: %@",meal.name);
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -106,11 +104,12 @@
     int currentCase = self.combinationIndex;
     int nextCase = (currentCase+1) % cases;
     NSLog(@"Index: %d",nextCase);
-        self.combinationIndex = nextCase;
+    self.combinationIndex = nextCase;
     [self.meals removeAllObjects];
-        [self getMealsFrom:self.index andTo:self.index+20];
-
+    [self getMealsFrom:self.index andTo:self.index+20];
 }
+
+#pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -119,7 +118,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.meals count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MARecipe *recipe = [self.meals objectAtIndex:indexPath.row];
@@ -210,6 +208,8 @@
         destViewController.self.navigationItem.rightBarButtonItem = addButton;
     }
 }
+
+#pragma mark - Gestures
 
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
